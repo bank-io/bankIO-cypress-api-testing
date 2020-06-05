@@ -1,5 +1,5 @@
 {
-  "name": "cypress-example-api-testing",
+  "name": "bankIO-cypress-api-testing",
   "version": "1.0.0",
   "description": "Cypress E2E runner can also test Rest and other APIs",
   "main": "index.js",
@@ -13,7 +13,7 @@
     "test:ci": "run-p --race start cy:run:record"
   },
   "keywords": [],
-  "author": "",
+  "author": "bankIO",
   "license": "ISC",
   "devDependencies": {
     "cypress": "4.7.0",
