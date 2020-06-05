@@ -17,9 +17,15 @@
   "license": "ISC",
   "devDependencies": {
     "cypress": "4.7.0",
+    "cypress-cucumber-preprocessor": "^2.4.0",
     "npm-run-all": "4.1.5"
   },
   "dependencies": {
-    "json-server": "0.15.1"
+    "json-server": "0.15.1",
+    "puppeteer": "^3.3.0",
+    "querystring": "^0.2.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": false
   }
 }
