@@ -13,7 +13,7 @@ async function doRBSSandboxLogin(url) {
     await page.type('[name="customer-number"]', "123456789012");
 
     // await Promise.all([, page.waitForNavigation()]);
-    await page.click('button[data-action="continue"]:not([disabled]')
+    await page.click('button[data-action="continue"]:not([disabled])')
 
     await page.waitFor('[name="pin-1"]');
     await page.type('[name="pin-1"]', "5");
@@ -24,7 +24,7 @@ async function doRBSSandboxLogin(url) {
     await page.type('[name="password-2"]', "3");
     await page.type('[name="password-3"]', "6");
 
-    await Promise.all([page.click('button[data-action="authenticate"]:not([disabled]'), page.waitForNavigation()]);
+    await Promise.all([page.click('button[data-action="authenticate"]:not([disabled])'), page.waitForNavigation()]);
 
     await page.waitFor('#account-list');
     await page.click("#account-list .row-element:nth-of-type(1)");

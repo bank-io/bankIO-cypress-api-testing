@@ -38,6 +38,7 @@ async function doAlphaBankSandboxLogin(url) {
     await typeInInputElement(page, '#otpfield', '123456');
 
     // await Promise.all([page.click(`button[name="submit.grant"]`), page.waitForNavigation()]);
+    // await page.click(`button[name="submit.grant"]:not([disabled])`);
 
     await page.waitFor(1000);
     await page.evaluate(() => { document.querySelector('button[name="submit.grant"]').click(); });
