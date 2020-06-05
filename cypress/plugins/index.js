@@ -15,6 +15,7 @@ const { doRBSSandboxLogin } = require("./rbs");
 const { doBTSandboxLogin } = require("./bt");
 const { doAlphaBankSandboxLogin } = require("./alphabank");
 const { doRevolutSandboxLogin } = require("./revolut");
+const { doMonzoSandboxLogin } = require("./monzo");
 const { doBCRSandboxLogin } = require("./bcr");
 const { doRaiffeisenRomaniaSandboxLogin } = require("./raiffeisen-romania");
 const { doUniCreditRomaniaSandboxLogin } = require("./UniCredit-romania");
@@ -36,6 +37,9 @@ module.exports = (on, config) => {
 
           case "Revolut":
             return await doRevolutSandboxLogin(url);
+
+          case "Monzo":
+            return await doMonzoSandboxLogin(url);
 
           case "RBS Bank":
             return await doRBSSandboxLogin(url);
