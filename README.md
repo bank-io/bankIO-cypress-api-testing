@@ -19,3 +19,8 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * `client_id` - bankIO OpenID Connect client id
 * `client_secret` - bankIO OpenID Connect client secret
 * `organisation` - bankIO organisation name
+
+## List of current ASPSPs
+
+* Lloyds bank (sandbox)
+* Banca Transilvania (sandbox)
