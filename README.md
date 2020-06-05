@@ -27,3 +27,5 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * Lloyds bank (sandbox)
 * Banca Transilvania (sandbox)
 * Raiffeisen Bank Romania (sandbox)
+* RBS Bank (sandbox)
+* Banca Comercială Română (sandbox)

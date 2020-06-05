@@ -13,6 +13,7 @@ const cucumber = require("cypress-cucumber-preprocessor").default;
 const { doLloydsSandboxLogin } = require("./lloyds");
 const { doRBSSandboxLogin } = require("./rbs");
 const { doBTSandboxLogin } = require("./bt");
+const { doBCRSandboxLogin } = require("./bcr");
 const { doRaiffeisenRomaniaSandboxLogin } = require("./raiffeisen-romania");
 const { doUniCreditRomaniaSandboxLogin } = require("./UniCredit-romania");
 
@@ -33,6 +34,9 @@ module.exports = (on, config) => {
 
           case "RBS Bank":
             return await doRBSSandboxLogin(url);
+
+          case "Banca Comercială Română":
+            return await doBCRSandboxLogin(url);
             
           case "Banca Transilvania":
             return await doBTSandboxLogin(url);
