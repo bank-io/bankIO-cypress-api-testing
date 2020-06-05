@@ -7,7 +7,6 @@ async function doBTSandboxLogin(url) {
     const page = await browser.newPage();
 
     await page.goto(url);
-    // await page.waitForNavigation();
 
     await page.waitFor('[name="username"]');
     await page.type('[name="username"]', "user");
@@ -31,9 +30,6 @@ async function doBTSandboxLogin(url) {
 
     await Promise.all([page.click(`input[type="submit"][value="SUBMIT"]`), page.waitForNavigation()]);
 
-    // await page.waitForSelector('form button[type="submit"]', { timeout: 10000 });
-    // await Promise.all([page.click('form button[type="submit"]'), page.waitForNavigation()]);
-
     const firstRequest = await page.waitForRequest((request) => {
       return request.url().includes("https://cypress.bankio.local/openbanking/callback") && request.method() === "GET";
     });
@@ -44,7 +40,7 @@ async function doBTSandboxLogin(url) {
   } catch (e) {
     console.error(e);
   } finally {
-    // await browser.close();
+    await browser.close();
   }
 }
 

@@ -12,6 +12,7 @@ const cucumber = require("cypress-cucumber-preprocessor").default;
 
 const { doLloydsSandboxLogin } = require("./lloyds");
 const { doBTSandboxLogin } = require("./bt");
+const { doRaiffeisenRomaniaSandboxLogin } = require("./raiffeisen-romania");
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
@@ -30,6 +31,9 @@ module.exports = (on, config) => {
             
           case "Banca Transilvania":
             return await doBTSandboxLogin(url);
+            
+          case "Raiffeisen Bank România":
+            return await doRaiffeisenRomaniaSandboxLogin(url);
         }
       })();
     },

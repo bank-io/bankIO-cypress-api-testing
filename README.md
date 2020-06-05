@@ -22,5 +22,8 @@ See scripts in `package.json` to start the local API server and run the tests. T
 
 ## List of current ASPSPs
 
+### AISP
+
 * Lloyds bank (sandbox)
 * Banca Transilvania (sandbox)
+* Raiffeisen Bank Romania (sandbox)
