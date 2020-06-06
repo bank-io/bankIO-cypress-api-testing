@@ -33,6 +33,7 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * Monzo Bank (sandbox)
 * Revolut Bank (sandbox)
 * UniCredit Bank Romania (sandbox)
+* Danske Bank (sandbox)
 
 ## Give us your feedback
 
