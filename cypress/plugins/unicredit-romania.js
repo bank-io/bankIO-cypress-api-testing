@@ -16,14 +16,22 @@ async function doUniCreditRomaniaSandboxLogin(url) {
 
     await Promise.all([page.click("button"), page.waitForNavigation()]);
 
-    // const returnToTPPElement = await page.$x("//button[contains(., 'Grant Consents')]");
-    // // const returnToTPPElement = await page.$x("//button[contains(., 'GRANT CONSENTS')]");
+    await page.waitFor(3000);
+    // const returnToTPPElement = await page.$x("//button[contains(., 'Grant Consents')]:not([disabled])");
+    // // // const returnToTPPElement = await page.$x("//button[contains(., 'GRANT CONSENTS')]");
     // await returnToTPPElement[0].click();
     // await returnToTPPElement[0].click();
 
-    await page.focus('#grant_consents-btn1');
+    await page.$eval('#grant_consents-btn1', elem => elem.click());
 
-    await page.keyboard.press('Enter');
+    // await page.evaluate(() => { document.querySelector('#grant_consents-btn1').click(); });
+
+    // await page.waitFor(1000);
+    // await page.evaluate(() => { document.querySelector('#grant_consents-btn1').click(); });
+
+    // await page.focus('#grant_consents-btn1');
+
+    // await page.keyboard.press('Enter');
 
     // await page.click("#grant_consents-btn1");
 
