@@ -81,7 +81,7 @@ When(/^I click Authorise consent button$/, (institution) => {
 
 When(/^I visit the Authorise consent button link$/, (institution) => {
   cy.get("@selectedInstitution").then((selectedInstitution) => {
-    cy.contains(`a[role*="button"] .MuiButton-label`, "Authorise consent", { timeout: 10000 })
+    cy.contains(`a[role*="button"] .MuiButton-label`, "Authorise consent", { timeout: 20000 })
       .parents("a")
       .then(($el) => {
         const url = $el.attr("href");
