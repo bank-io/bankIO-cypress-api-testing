@@ -49,7 +49,7 @@ When(/^I authorise the consent$/, (param1) => {
   cy.get("@consent").then(({ body: consent }) => {
     console.log("consent", consent);
     cy.visit(
-      `https://ob.bankio.ro/api/auth/authorize?${querystring.stringify({
+      `/auth/authorize?${querystring.stringify({
         redirect_uri: "https://cypress.bankio.local/openbanking/callback",
         state: "state",
         response_type: "code",

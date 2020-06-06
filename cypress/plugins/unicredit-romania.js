@@ -2,7 +2,7 @@
 const puppeteer = require("puppeteer");
 
 async function doUniCreditRomaniaSandboxLogin(url) {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: false, args: ["--disable-web-security"] });
   try {
     const page = await browser.newPage();
 

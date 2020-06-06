@@ -2,7 +2,7 @@
 const puppeteer = require("puppeteer");
 
 async function doLloydsSandboxLogin(url) {
-  const browser = await puppeteer.launch({ headless: false });
+  const browser = await puppeteer.launch({ headless: false, args: ["--disable-web-security"] });
   try {
     const page = await browser.newPage();
 
@@ -11,11 +11,11 @@ async function doLloydsSandboxLogin(url) {
 
     await Promise.all([page.click('a[aria-label="allow cookies"]')]);
 
-    await page.waitFor('[placeholder="User Name"]');
-    await page.type('[placeholder="User Name"]', "llr001");
+    await page.waitFor('input[placeholder="User Name"]');
+    await page.type('input[placeholder="User Name"]', "llr001");
 
-    await page.waitFor('[placeholder="Password"]');
-    await page.type('[placeholder="Password"]', "Password123");
+    await page.waitFor('input[placeholder="Password"]');
+    await page.type('input[placeholder="Password"]', "Password123");
     await Promise.all([page.click("forgerock-auth-login button"), page.waitForNavigation()]);
 
     await page.waitForSelector('form button[type="submit"]', { timeout: 10000 });
