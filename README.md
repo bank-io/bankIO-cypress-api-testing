@@ -37,6 +37,7 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * ING Group (sandbox)
 * Allied Irish Bank (sandbox)
 * Nationwide Building Society (sandbox)
+* Virgin Bank (sandbox)
 
 ## Give us your feedback
 
