@@ -3,9 +3,9 @@ const puppeteer = require('./puppeteer');
 
 async function doLloydsSandboxLogin(url, options) {
   const browser = await puppeteer.launch(options);
+  const page = await browser.newPage();
+  
   try {
-    const page = await browser.newPage();
-
     await page.goto(url);
     await page.waitForNavigation();
 
@@ -30,6 +30,12 @@ async function doLloydsSandboxLogin(url, options) {
     return firstRequest.url();
   } catch (e) {
     console.error(e);
+
+    await page.screenshot({
+      path: "./cypress/screenshots/lloyds.jpg",
+      type: "jpeg",
+      fullPage: true
+    });
   } finally {
     await browser.close();
   }

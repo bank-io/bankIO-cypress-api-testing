@@ -35,6 +35,8 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * UniCredit Bank Romania (sandbox)
 * Danske Bank (sandbox)
 * ING Group (sandbox)
+* Allied Irish Bank (sandbox)
+* Nationwide Building Society (sandbox)
 
 ## Give us your feedback
 

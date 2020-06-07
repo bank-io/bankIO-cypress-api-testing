@@ -44,6 +44,12 @@ async function doUniCreditRomaniaSandboxLogin(url, options) {
     return firstRequest.url();
   } catch (e) {
     console.error(e);
+
+    await page.screenshot({
+      path: "./cypress/screenshots/unicredit.jpg",
+      type: "jpeg",
+      fullPage: true
+    });
   } finally {
     await browser.close();
   }
