@@ -2,7 +2,7 @@
 
 CURRENT_DIR="$( cd "$(dirname "$0")" ; pwd -P )"
 
-docker run -t \
+docker run --rm -t \
   -w=/app \
   -e CYPRESS_BASE_URL=$CYPRESS_BASE_URL \
   -e CYPRESS_client_id=$CYPRESS_client_id \
