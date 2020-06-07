@@ -26,6 +26,12 @@ async function doBCRSandboxLogin(url, options) {
     return firstRequest.url();
   } catch (e) {
     console.error(e);
+
+    await page.screenshot({
+      path: "./cypress/screenshots/bcr.jpg",
+      type: "jpeg",
+      fullPage: true
+    });
   } finally {
     await browser.close();
   }
