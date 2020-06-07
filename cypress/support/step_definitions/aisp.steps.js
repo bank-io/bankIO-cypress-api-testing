@@ -88,7 +88,7 @@ When(/^I visit the Authorise consent button link$/, (institution) => {
 
         cy.contains(`[role*="button"] .MuiButton-label`, "Back").click();
 
-        cy.task("doLogin", {selectedInstitution, url}).then((returnUrl) => {
+        cy.task("doLogin", {selectedInstitution, url, options: { headless: Cypress.browser.isHeadless }}).then((returnUrl) => {
           cy.log(returnUrl);
 
           const location = new URL(returnUrl);

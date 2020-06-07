@@ -1,5 +1,5 @@
 
-const puppeteer = require("puppeteer");
+const puppeteer = require('./puppeteer');
 
 const shadowSelectorFn = (el, selector) => el.shadowRoot && el.shadowRoot.querySelector(selector);
 
@@ -17,8 +17,8 @@ const queryDeep = async (page, ...selectors) => {
     return parentElement;
 };
 
-async function doINGSandboxLogin(url) {
-  const browser = await puppeteer.launch({ headless: false, args: ["--disable-web-security"] });
+async function doINGSandboxLogin(url, options) {
+  const browser = await puppeteer.launch(options);
   try {
     const page = await browser.newPage();
 

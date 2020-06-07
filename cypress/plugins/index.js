@@ -31,42 +31,42 @@ module.exports = (on, config) => {
   on("file:preprocessor", cucumber());
 
   on("task", {
-    doLogin: ({ selectedInstitution, url }) => {
+    doLogin: ({ selectedInstitution, url, options }) => {
       return (async () => {
         switch (selectedInstitution) {
           case "Lloyds":
-            return await doLloydsSandboxLogin(url);
+            return await doLloydsSandboxLogin(url, options);
 
           case "ING Group":
-            return await doINGSandboxLogin(url);
+            return await doINGSandboxLogin(url, options);
 
           case "Danske Bank private (sandbox)":
           case "Danske Bank business (sandbox)":
-            return await doDanskeSandboxLogin(url);
+            return await doDanskeSandboxLogin(url, options);
 
           case "Revolut":
-            return await doRevolutSandboxLogin(url);
+            return await doRevolutSandboxLogin(url, options);
 
           case "Monzo":
-            return await doMonzoSandboxLogin(url);
+            return await doMonzoSandboxLogin(url, options);
 
           case "RBS Bank":
-            return await doRBSSandboxLogin(url);
+            return await doRBSSandboxLogin(url, options);
 
           case "Banca Comercială Română":
-            return await doBCRSandboxLogin(url);
+            return await doBCRSandboxLogin(url, options);
             
           case "Banca Transilvania":
-            return await doBTSandboxLogin(url);
+            return await doBTSandboxLogin(url, options);
             
           case "Alpha Bank":
-            return await doAlphaBankSandboxLogin(url);
+            return await doAlphaBankSandboxLogin(url, options);
             
           case "Raiffeisen Bank România":
-            return await doRaiffeisenRomaniaSandboxLogin(url);
+            return await doRaiffeisenRomaniaSandboxLogin(url, options);
             
           case "UniCredit Bank Romania":
-            return await doUniCreditRomaniaSandboxLogin(url);
+            return await doUniCreditRomaniaSandboxLogin(url, options);
         }
       })();
     },

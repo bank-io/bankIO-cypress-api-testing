@@ -1,8 +1,8 @@
 
-const puppeteer = require("puppeteer");
+const puppeteer = require('./puppeteer');
 
-async function doRaiffeisenRomaniaSandboxLogin(url) {
-  const browser = await puppeteer.launch({ headless: false, args: ["--disable-web-security"] });
+async function doRaiffeisenRomaniaSandboxLogin(url, options) {
+  const browser = await puppeteer.launch(options);
   try {
     const page = await browser.newPage();
 

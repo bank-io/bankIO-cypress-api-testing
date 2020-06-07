@@ -6,11 +6,17 @@
   "private": true,
   "scripts": {
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --headless",
     "cy:run:record": "cypress run --record",
-    "start": "json-server db.json",
     "test": "run-p --race start cy:run",
-    "test:ci": "run-p --race start cy:run:record"
+    "test:ci": "run-p --race start cy:run:record",
+    "cy:run-headless": "cypress run",
+    "cy:run-mocha": "cypress run -e TAGS='not @avoid' --reporter cypress-multi-reporters --config screenshotsFolder=cypress/screenshots --reporter-options configFile=reporterOpts.json",
+    "cy:delete-results": "mkdir -p cypress/results && rm -f -R cypress/results/* && mkdir -p cypress/screenshots && rm -f -R cypress/screenshots/*",
+    "cy:mochawesome-merge": "grep -l '\"tests\": 0,' cypress/results/* | xargs rm && npx mochawesome-merge --reportDir cypress/results > cypress/mochawesome.json",
+    "cy:mochawesome-report-generator": "npx marge cypress/mochawesome.json -o cypress/mochawesome-report",
+    "cy:run-mocha-all": "npm run cy:delete-results && npm run cy:run-mocha && npm run cy:mochawesome-merge && npm run cy:mochawesome-report-generator",
+    "cy:run-mocha-all-prod": "npm run cy:delete-results && npm run cy:run-mocha-prod && npm run cy:mochawesome-merge && npm run cy:mochawesome-report-generator"
   },
   "keywords": [],
   "author": "bankIO",
@@ -18,10 +24,14 @@
   "devDependencies": {
     "cypress": "4.7.0",
     "cypress-cucumber-preprocessor": "^2.4.0",
+    "cypress-multi-reporters": "1.4.0",
+    "mocha": "7.2.0",
+    "mochawesome": "6.1.1",
+    "mochawesome-merge": "4.1.0",
+    "mochawesome-report-generator": "5.1.0",
     "npm-run-all": "4.1.5"
   },
   "dependencies": {
-    "json-server": "0.16.1",
     "puppeteer": "^3.3.0",
     "querystring": "^0.2.0"
   },
