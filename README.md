@@ -1,4 +1,4 @@
-# bankIO cypress automated api testing
+# bankIO cypress automated E2E PSD2/OpenBanking api tests
 
 [![Test Status](https://dev.azure.com/pewit/Inventio/_apis/build/status/bankIO%20E2E?branchName=master)](https://dev.azure.com/pewit/Inventio/_build/latest?definitionId=15&branchName=master)
 
