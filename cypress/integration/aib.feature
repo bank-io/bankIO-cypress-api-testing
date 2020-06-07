@@ -7,7 +7,6 @@ Feature: Allied Irish Bank
         When I create a new account consent for user "user1"
         When I authorise the consent
         When I select institution "Allied Irish Bank (sandbox)"
-        When I click next
         When I visit the Authorise consent button link
         When I exchange the authorisation code to access token
         Then I should have consent status "valid"
