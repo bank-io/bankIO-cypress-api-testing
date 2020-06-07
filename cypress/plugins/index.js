@@ -20,7 +20,7 @@ const { doRevolutSandboxLogin } = require("./revolut");
 const { doMonzoSandboxLogin } = require("./monzo");
 const { doBCRSandboxLogin } = require("./bcr");
 const { doRaiffeisenRomaniaSandboxLogin } = require("./raiffeisen-romania");
-const { doUniCreditRomaniaSandboxLogin } = require("./UniCredit-romania");
+const { doUniCreditRomaniaSandboxLogin } = require("./unicredit-romania");
 
 // This function is called when a project is opened or re-opened (e.g. due to
 // the project's config changing)
