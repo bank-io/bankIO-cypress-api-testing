@@ -1,6 +1,6 @@
-# bankIO-cypress-api-testing
+# bankIO cypress automated api testing
 
-> [Cypress](https://cypress.io) E2E runner can also test Rest and other APIs
+[![Test Status](https://dev.azure.com/pewit/Inventio/_apis/build/status/bankIO%20E2E?branchName=master)](https://dev.azure.com/pewit/Inventio/_build/latest?definitionId=15&branchName=master)
 
 ![API testing using Cypress](images/demo.png)
 

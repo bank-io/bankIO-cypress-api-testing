@@ -15,8 +15,7 @@
     "cy:delete-results": "mkdir -p cypress/results && rm -f -R cypress/results/* && mkdir -p cypress/screenshots && rm -f -R cypress/screenshots/*",
     "cy:mochawesome-merge": "grep -l '\"tests\": 0,' cypress/results/* | xargs -r rm && npx mochawesome-merge cypress/results/*.json > cypress/mochawesome.json",
     "cy:mochawesome-report-generator": "npx marge cypress/mochawesome.json -o cypress/mochawesome-report",
-    "cy:run-mocha-all": "npm run cy:delete-results && npm run cy:run-mocha && npm run cy:mochawesome-merge && npm run cy:mochawesome-report-generator",
-    "cy:run-mocha-all-prod": "npm run cy:delete-results && npm run cy:run-mocha-prod && npm run cy:mochawesome-merge && npm run cy:mochawesome-report-generator"
+    "cy:run-mocha-all": "npm run cy:delete-results && npm run cy:run-mocha && npm run cy:mochawesome-merge && npm run cy:mochawesome-report-generator"
   },
   "keywords": [],
   "author": "bankIO",
