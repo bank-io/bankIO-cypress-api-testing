@@ -3,9 +3,9 @@ const puppeteer = require('./puppeteer');
 
 async function doBTSandboxLogin(url, options) {
   const browser = await puppeteer.launch(options);
-  try {
-    const page = await browser.newPage();
+  const page = await browser.newPage();
 
+  try {
     await page.goto(url);
 
     await page.waitFor('[name="username"]');
@@ -39,6 +39,12 @@ async function doBTSandboxLogin(url, options) {
     return firstRequest.url();
   } catch (e) {
     console.error(e);
+
+    await page.screenshot({
+      path: "./cypress/screenshots/bt.jpg",
+      type: "jpeg",
+      fullPage: true
+    });
   } finally {
     await browser.close();
   }

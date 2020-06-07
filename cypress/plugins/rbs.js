@@ -3,9 +3,9 @@ const puppeteer = require('./puppeteer');
 
 async function doRBSSandboxLogin(url, options) {
   const browser = await puppeteer.launch(options);
-  try {
-    const page = await browser.newPage();
+  const page = await browser.newPage();
 
+  try {
     await page.goto(url);
     await page.waitForNavigation();
 
@@ -41,8 +41,14 @@ async function doRBSSandboxLogin(url, options) {
     return firstRequest.url();
   } catch (e) {
     console.error(e);
+
+    await page.screenshot({
+      path: "./cypress/screenshots/rbs.jpg",
+      type: "jpeg",
+      fullPage: true
+    });
   } finally {
-    // await browser.close();
+    await browser.close();
   }
 }
 

@@ -3,9 +3,9 @@ const puppeteer = require('./puppeteer');
 
 async function doUniCreditRomaniaSandboxLogin(url, options) {
   const browser = await puppeteer.launch(options);
+  const page = await browser.newPage();
+  
   try {
-    const page = await browser.newPage();
-
     await page.goto(url);
 
     await page.waitFor('[name="UserName"]');
@@ -45,7 +45,7 @@ async function doUniCreditRomaniaSandboxLogin(url, options) {
   } catch (e) {
     console.error(e);
   } finally {
-    // await browser.close();
+    await browser.close();
   }
 }
 
