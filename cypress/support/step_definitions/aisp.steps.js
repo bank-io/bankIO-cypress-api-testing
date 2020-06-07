@@ -66,7 +66,7 @@ When(/^I authorise the consent$/, (param1) => {
 When(/^I select institution "(.*)"$/, (institution) => {
   cy.wrap(institution).as("selectedInstitution");
 
-  cy.get('input[placeholder="Search bank"]').type(institution);
+  cy.get('input[placeholder="Search bank"]', { timeout: 20000 }).type(institution);
 
   cy.contains(`td`, institution).click();
 });
