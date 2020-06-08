@@ -13,5 +13,4 @@ docker run --rm -t \
   --volume "$CURRENT_DIR/cypress.json":/app/cypress.json \
   --volume "$CURRENT_DIR/reporterOpts.json":/app/reporterOpts.json \
   --volume "$CURRENT_DIR/run-tests.sh":/app/run-tests.sh \
-  --user "$(id -u):$(id -g)" \
   cypress/browsers:node13.8.0-chrome81-ff75 /bin/sh -c ./run-tests.sh
