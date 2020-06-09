@@ -15,7 +15,7 @@ async function typeInInputElement(page, inputSelector, text) {
 }
 
 async function doAlphaBankSandboxLogin(url, options) {
-  const page = await puppeteer.newPage(options);
+  const { browser, page } = await puppeteer.newPage(options);
 
   try {
     await page.goto(url);

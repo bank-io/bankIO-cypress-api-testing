@@ -2,7 +2,7 @@
 const puppeteer = require('./puppeteer');
 
 async function doBTSandboxLogin(url, options) {
-  const page = await puppeteer.newPage(options);
+  const { browser, page } = await puppeteer.newPage(options);
 
   try {
     await page.goto(url);

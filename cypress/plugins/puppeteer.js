@@ -12,7 +12,7 @@ async function newPage(options) {
   await page.setDefaultNavigationTimeout(3 * 60 * 1000);
   await page.setDefaultTimeout(3 * 60 * 1000);
 
-  return page;
+  return { browser, page };
 }
 
 module.exports = {

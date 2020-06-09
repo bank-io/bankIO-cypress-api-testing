@@ -18,7 +18,7 @@ const queryDeep = async (page, ...selectors) => {
 };
 
 async function doINGSandboxLogin(url, options) {
-  const page = await puppeteer.newPage(options);
+  const { browser, page } = await puppeteer.newPage(options);
 
   try {
     await page.goto(url);
