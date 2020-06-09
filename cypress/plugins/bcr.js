@@ -2,10 +2,8 @@
 const puppeteer = require('./puppeteer');
 
 async function doBCRSandboxLogin(url, options) {
-  const browser = await puppeteer.launch(options);
+  const { browser, page } = await puppeteer.newPage(options);
   try {
-    const page = await browser.newPage();
-
     await page.goto(url);
 
     await page.waitFor('select[name="user"]');
