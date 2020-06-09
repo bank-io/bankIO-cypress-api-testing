@@ -2,8 +2,7 @@
 const puppeteer = require('./puppeteer');
 
 async function doMonzoSandboxLogin(url, options) {
-  const browser = await puppeteer.launch(options);
-  const page = await browser.newPage();
+  const page = await puppeteer.newPage(options);
 
   try {
     await page.goto(url);

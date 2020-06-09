@@ -1,19 +1,19 @@
 
 const puppeteer = require('./puppeteer');
 
-async function doRaiffeisenRomaniaSandboxLogin(url, options) {
+async function doBBVASandboxLogin(url, options) {
   const page = await puppeteer.newPage(options);
-
+  
   try {
     await page.goto(url);
-    await page.waitForNavigation();
 
-    await page.waitFor('[placeholder="PSU ID"]');
-    await page.type('[placeholder="PSU ID"]', "9999999997");
+    await page.waitFor('input[name="username"]');
+    await page.type('input[name="username"]', "user1");
 
-    await Promise.all([page.click("button"), page.waitForNavigation()]);
-
-    const returnToTPPElement = await page.$x("//button[contains(., 'Return to TPP')]");
+    await page.waitFor('input[name="password"]');
+    await page.type('input[name="password"]', "1234");
+    
+    const returnToTPPElement = await page.$x("//span[contains(., 'Submit')]");
     await returnToTPPElement[0].click();
 
     const firstRequest = await page.waitForRequest((request) => {
@@ -27,7 +27,7 @@ async function doRaiffeisenRomaniaSandboxLogin(url, options) {
     console.error(e);
 
     await page.screenshot({
-      path: "./cypress/screenshots/raiffeisen-romania.jpg",
+      path: "./cypress/screenshots/bbva.jpg",
       type: "jpeg",
       fullPage: true
     });
@@ -37,5 +37,5 @@ async function doRaiffeisenRomaniaSandboxLogin(url, options) {
 }
 
 module.exports = {
-    doRaiffeisenRomaniaSandboxLogin
+    doBBVASandboxLogin
 }

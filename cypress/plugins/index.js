@@ -11,6 +11,7 @@
 const cucumber = require("cypress-cucumber-preprocessor").default;
 
 const { doLloydsSandboxLogin } = require("./lloyds");
+const { doBBVASandboxLogin } = require("./bbva");
 const { doVirginSandboxLogin } = require("./virgin");
 const { doNationwideSandboxLogin } = require("./nationwide");
 const { doAIBSandboxLogin } = require("./aib");
@@ -39,6 +40,9 @@ module.exports = (on, config) => {
         switch (selectedInstitution) {
           case "Lloyds":
             return await doLloydsSandboxLogin(url, options);
+
+          case "BBVA (sandbox)":
+            return await doBBVASandboxLogin(url, options);
 
           case "Virgin":
             return await doVirginSandboxLogin(url, options);

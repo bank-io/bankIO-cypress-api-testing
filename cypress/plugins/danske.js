@@ -1,8 +1,7 @@
 const puppeteer = require('./puppeteer');
 
 async function doDanskeSandboxLogin(url, options) {
-  const browser = await puppeteer.launch(options);
-  const page = await browser.newPage();
+  const page = await puppeteer.newPage(options);
 
   try {
     await page.goto(url);
@@ -27,7 +26,7 @@ async function doDanskeSandboxLogin(url, options) {
 
     await page.click(".Selection__buttons #confirm:not([disabled])");
 
-    await page.waitFor(1000);
+    await page.waitFor(2000);
     await page.waitForSelector(".esafeIDSignature #ASHESignatureConfirmButton:not([disabled])");
     await page.click(".esafeIDSignature #ASHESignatureConfirmButton:not([disabled])");
 
