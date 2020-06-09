@@ -6,7 +6,7 @@ async function launch(options) {
 }
 
 async function newPage(options) {
-  const browser = await puppeteer.launch(options);
+  const browser = await launch(options);
   const page = await browser.newPage();
 
   await page.setDefaultNavigationTimeout(3 * 60 * 1000);
