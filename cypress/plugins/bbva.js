@@ -16,6 +16,12 @@ async function doBBVASandboxLogin(url, options) {
     const returnToTPPElement = await page.$x("//span[contains(., 'Submit')]");
     await returnToTPPElement[0].click();
 
+    await page.waitFor('input[name="otp"]');
+    await page.type('input[name="otp"]', "1234");
+    
+    const confirmButtonElement = await page.$x("//span[contains(., 'Confirm')]");
+    await confirmButtonElement[0].click();
+
     const firstRequest = await page.waitForRequest((request) => {
       return request.url().includes("https://cypress.bankio.local/openbanking/callback") && request.method() === "GET";
     });
