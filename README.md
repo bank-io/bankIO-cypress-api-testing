@@ -38,6 +38,10 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * Allied Irish Bank (sandbox)
 * Nationwide Building Society (sandbox)
 * Virgin Bank (sandbox)
+* Unicaja Banco (sandbox)
+* Bankia (sandbox)
+* Bankinter (sandbox)
+* CaixaBank (sandbox)
 
 ## Give us your feedback
 
