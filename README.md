@@ -42,6 +42,7 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * Bankia (sandbox)
 * Bankinter (sandbox)
 * CaixaBank (sandbox)
+* Raiffeisen Bank Austria (sandbox)
 
 ## Give us your feedback
 

@@ -28,6 +28,7 @@ const { doRevolutSandboxLogin } = require("./revolut");
 const { doMonzoSandboxLogin } = require("./monzo");
 const { doBCRSandboxLogin } = require("./bcr");
 const { doRaiffeisenRomaniaSandboxLogin } = require("./raiffeisen-romania");
+const { doRaiffeisenAustriaSandboxLogin } = require("./raiffeisen-austria");
 const { doUniCreditRomaniaSandboxLogin } = require("./unicredit-romania");
 
 // This function is called when a project is opened or re-opened (e.g. due to
@@ -96,6 +97,9 @@ module.exports = (on, config) => {
             
           case "Raiffeisen Bank România":
             return await doRaiffeisenRomaniaSandboxLogin(url, options);
+            
+          case "Raiffeisen Bank Austria (sandbox)":
+            return await doRaiffeisenAustriaSandboxLogin(url, options);
             
           case "UniCredit Bank Romania":
             return await doUniCreditRomaniaSandboxLogin(url, options);
