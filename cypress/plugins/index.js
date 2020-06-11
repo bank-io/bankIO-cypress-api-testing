@@ -30,6 +30,7 @@ const { doBCRSandboxLogin } = require("./bcr");
 const { doRaiffeisenRomaniaSandboxLogin } = require("./raiffeisen-romania");
 const { doRaiffeisenBulgariaSandboxLogin } = require("./raiffeisen-bulgaria");
 const { doRaiffeisenAustriaSandboxLogin } = require("./raiffeisen-austria");
+const { doRaiffeisenSlovakiaSandboxLogin } = require("./raiffeisen-slovakia");
 const { doUniCreditRomaniaSandboxLogin } = require("./unicredit-romania");
 
 // This function is called when a project is opened or re-opened (e.g. due to
@@ -104,6 +105,9 @@ module.exports = (on, config) => {
             
           case "Raiffeisen Bank Austria (sandbox)":
             return await doRaiffeisenAustriaSandboxLogin(url, options);
+            
+          case "Raiffeisen Bank Slovakia (sandbox)":
+            return await doRaiffeisenSlovakiaSandboxLogin(url, options);
             
           case "UniCredit Bank Romania":
             return await doUniCreditRomaniaSandboxLogin(url, options);
