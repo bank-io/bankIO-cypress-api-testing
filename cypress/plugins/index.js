@@ -28,6 +28,7 @@ const { doRevolutSandboxLogin } = require("./revolut");
 const { doMonzoSandboxLogin } = require("./monzo");
 const { doBCRSandboxLogin } = require("./bcr");
 const { doRaiffeisenRomaniaSandboxLogin } = require("./raiffeisen-romania");
+const { doRaiffeisenBulgariaSandboxLogin } = require("./raiffeisen-bulgaria");
 const { doRaiffeisenAustriaSandboxLogin } = require("./raiffeisen-austria");
 const { doUniCreditRomaniaSandboxLogin } = require("./unicredit-romania");
 
@@ -97,6 +98,9 @@ module.exports = (on, config) => {
             
           case "Raiffeisen Bank România":
             return await doRaiffeisenRomaniaSandboxLogin(url, options);
+            
+          case "Raiffeisen Bank Bulgaria":
+            return await doRaiffeisenBulgariaSandboxLogin(url, options);
             
           case "Raiffeisen Bank Austria (sandbox)":
             return await doRaiffeisenAustriaSandboxLogin(url, options);

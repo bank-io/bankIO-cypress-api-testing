@@ -1,4 +1,4 @@
-Feature: Raiffeisen Bank Austria
+Feature: Raiffeisen bank Bulgaria
 
     Background:
         Given I request client credentials
@@ -6,7 +6,7 @@ Feature: Raiffeisen Bank Austria
     Scenario: Create consent, authorise and check account list, balances, transactions
         When I create a new account consent for user "user1"
         When I authorise the consent
-        When I select institution "Raiffeisen Bank Austria (sandbox)"
+        When I select institution "Raiffeisen Bank Bulgaria"
         When I click next
         When I click next
         When I visit the Authorise consent button link
@@ -14,7 +14,7 @@ Feature: Raiffeisen Bank Austria
         Then I should have consent status "valid"
         When I get the account list
         Then I should have a few accounts in the list
-        When I select account with IBAN "AT439900000000010017"
+        When I select account with IBAN "BG91RZBB91551000333826"
         When I get the account data
         When I get the account balances
         Then I should have a few balances in the list
