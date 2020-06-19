@@ -23,6 +23,7 @@ const { doINGSandboxLogin } = require("./ing");
 const { doDanskeSandboxLogin } = require("./danske");
 const { doRBSSandboxLogin } = require("./rbs");
 const { doBTSandboxLogin } = require("./bt");
+const { doDeutscheBankSandboxLogin } = require("./deutsche-bank");
 const { doAlphaBankSandboxLogin } = require("./alphabank");
 const { doRevolutSandboxLogin } = require("./revolut");
 const { doMonzoSandboxLogin } = require("./monzo");
@@ -93,6 +94,9 @@ module.exports = (on, config) => {
             
           case "Banca Transilvania":
             return await doBTSandboxLogin(url, options);
+            
+          case "Deutsche Bank Group":
+            return await doDeutscheBankSandboxLogin(url, options);
             
           case "Alpha Bank":
             return await doAlphaBankSandboxLogin(url, options);

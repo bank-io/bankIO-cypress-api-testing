@@ -32,6 +32,7 @@ See scripts in `package.json` to start the local API server and run the tests. T
 * Bankinter (sandbox)
 * CaixaBank (sandbox)
 * Danske Bank (sandbox)
+* Deutsche Bank (sandbox)
 * ING Group (sandbox)
 * Lloyds bank (sandbox)
 * Monzo Bank (sandbox)
