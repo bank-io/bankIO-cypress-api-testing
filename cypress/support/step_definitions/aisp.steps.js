@@ -66,9 +66,11 @@ When(/^I authorise the consent$/, (param1) => {
 When(/^I select institution "(.*)"$/, (institution) => {
   cy.wrap(institution).as("selectedInstitution");
 
-  cy.get('input[placeholder="Search bank"]', { timeout: 20000 }).type(institution);
+  cy.get('input[placeholder="Search bank"]', { timeout: 20000 }).type(
+    institution
+  );
 
-  cy.contains(`td`, institution).click();
+  cy.contains(`.aspsp-result`, institution).click();
 });
 
 When(/^I click next$/, (institution) => {
@@ -81,14 +83,20 @@ When(/^I click Authorise consent button$/, (institution) => {
 
 When(/^I visit the Authorise consent button link$/, (institution) => {
   cy.get("@selectedInstitution").then((selectedInstitution) => {
-    cy.contains(`a[role*="button"] .MuiButton-label`, "Authorise consent", { timeout: 20000 })
+    cy.contains(`a[role*="button"] .MuiButton-label`, "Authorise consent", {
+      timeout: 20000,
+    })
       .parents("a")
       .then(($el) => {
         const url = $el.attr("href");
 
         cy.contains(`[role*="button"] .MuiButton-label`, "Back").click();
 
-        cy.task("doLogin", {selectedInstitution, url, options: { headless: Cypress.browser.isHeadless }}).then((returnUrl) => {
+        cy.task("doLogin", {
+          selectedInstitution,
+          url,
+          options: { headless: Cypress.browser.isHeadless },
+        }).then((returnUrl) => {
           cy.log(returnUrl);
 
           const location = new URL(returnUrl);
@@ -132,7 +140,9 @@ Then(/^I should have consent status "(.*)"$/, (status) => {
           headers: {
             authorization: `Bearer ${accessToken.access_token}`,
           },
-          url: `/org/${Cypress.env("organisation")}/v1/consents/${consent.consentId}/status`, // baseUrl is prepended to url
+          url: `/org/${Cypress.env("organisation")}/v1/consents/${
+            consent.consentId
+          }/status`, // baseUrl is prepended to url
         })
         .its("body")
         .should("deep.eq", { consentStatus: status });
@@ -151,7 +161,9 @@ When(/^I get the account list$/, (status) => {
             "Consent-ID": consent.consentId,
             authorization: `Bearer ${accessToken.access_token}`,
           },
-          url: `/org/${Cypress.env("organisation")}/v1/accounts?withBalance=true`, // baseUrl is prepended to url
+          url: `/org/${Cypress.env(
+            "organisation"
+          )}/v1/accounts?withBalance=true`, // baseUrl is prepended to url
         })
         .as("accounts")
         .its("headers")
@@ -186,7 +198,9 @@ When(/^I get the account data$/, (status) => {
               "Consent-ID": consent.consentId,
               authorization: `Bearer ${accessToken.access_token}`,
             },
-            url: `/org/${Cypress.env("organisation")}/v1/accounts/${selectedAccount.resourceId}`, // baseUrl is prepended to url
+            url: `/org/${Cypress.env("organisation")}/v1/accounts/${
+              selectedAccount.resourceId
+            }`, // baseUrl is prepended to url
           })
           .as("account")
           .its("headers")
@@ -208,7 +222,9 @@ When(/^I get the account balances$/, (status) => {
               "Consent-ID": consent.consentId,
               authorization: `Bearer ${accessToken.access_token}`,
             },
-            url: `/org/${Cypress.env("organisation")}/v1/accounts/${selectedAccount.resourceId}/balances`, // baseUrl is prepended to url
+            url: `/org/${Cypress.env("organisation")}/v1/accounts/${
+              selectedAccount.resourceId
+            }/balances`, // baseUrl is prepended to url
           })
           .as("balances")
           .its("headers")
@@ -230,7 +246,9 @@ When(/^I get the account transactions$/, (status) => {
               "Consent-ID": consent.consentId,
               authorization: `Bearer ${accessToken.access_token}`,
             },
-            url: `/org/${Cypress.env("organisation")}/v1/accounts/${selectedAccount.resourceId}/transactions`, // baseUrl is prepended to url
+            url: `/org/${Cypress.env("organisation")}/v1/accounts/${
+              selectedAccount.resourceId
+            }/transactions`, // baseUrl is prepended to url
           })
           .as("transactions")
           .its("headers")
@@ -246,5 +264,7 @@ Then(/^I should have a few balances in the list$/, () => {
 });
 
 Then(/^I should have a few transactions in the list$/, () => {
-  cy.get("@transactions").its("body.transactions").should("have.length.of.at.least", 1);
+  cy.get("@transactions")
+    .its("body.transactions")
+    .should("have.length.of.at.least", 1);
 });
