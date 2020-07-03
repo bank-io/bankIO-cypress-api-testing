@@ -1,5 +1,6 @@
 import { Given, When, Then } from "cypress-cucumber-preprocessor/steps";
 import querystring from "querystring";
+const moment = require("moment");
 
 Given(/^I request client credentials$/, () => {
   cy.request({
@@ -20,6 +21,9 @@ Given(/^I request client credentials$/, () => {
 });
 
 When(/^I create a new account consent for user "(.*)"$/, (user) => {
+  const isRedsys = false;
+  const isSandbox = true;
+
   cy.get("@clientCredentials").then(({ body: clientCredentials }) => {
     cy.request({
       method: "POST",
@@ -33,7 +37,9 @@ When(/^I create a new account consent for user "(.*)"$/, (user) => {
           availableAccounts: "allAccounts",
         },
         recurringIndicator: true,
-        validUntil: "2020-06-09",
+        validUntil: moment()
+          .add(isRedsys && isSandbox ? 0 : 5, "days")
+          .format("YYYY-MM-DD"),
         combinedServiceIndicator: false,
         frequencyPerDay: 4,
       },
