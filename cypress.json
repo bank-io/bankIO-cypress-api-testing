@@ -1,5 +1,6 @@
 {
-  "baseUrl": "https://ob.bankio.ro/api",
+  "baseUrl2": "https://localhost:8443/api",
+  "baseUrl": "https://ob.bankio.co.uk/api",
   "video": false,
   "testFiles": "**/*.feature"
 }
