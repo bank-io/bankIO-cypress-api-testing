@@ -254,6 +254,16 @@ When(/^I select account with BBAN "(.*)"$/, (bban) => {
     });
 });
 
+When(/^I select account with sortCodeAccountNumber "(.*)"$/, (sortCodeAccountNumber) => {
+  cy.get('@accounts')
+    .its('body.accounts')
+    .then((accounts) => {
+      const account = accounts.find((p) => p.sortCodeAccountNumber == sortCodeAccountNumber);
+
+      cy.wrap(account).as('selectedAccount');
+    });
+});
+
 When(/^I get the account data$/, (status) => {
   cy.get('@accessToken').then(({ body: accessToken }) => {
     cy.get('@consent').then(({ body: consent }) => {

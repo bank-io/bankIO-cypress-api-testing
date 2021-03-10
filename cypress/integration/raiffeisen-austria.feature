@@ -7,7 +7,7 @@ Feature: Raiffeisen Bank Austria
         When I create a new account consent for user "user1"
         When I authorise the consent
         When I select institution "Raiffeisen Bank Austria (sandbox)"
-        When I click next
+        # When I click next
         When I click next
         When I visit the Authorise consent button link
         When I exchange the authorisation code to access token

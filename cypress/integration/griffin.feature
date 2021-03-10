@@ -7,8 +7,6 @@ Feature: Griffin bank
         When I create a new account consent for user "user1"
         When I authorise the consent
         When I select institution "Griffin Bank staging (sandbox)"
-        # When I click next
-        # When I click Sign in
         When I visit the Authorise consent button link
         When I exchange the authorisation code to access token
         Then I should have consent status "valid"

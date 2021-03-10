@@ -7,7 +7,7 @@ Feature: UniCredit bank Romania
         When I create a new account consent for user "user1"
         When I authorise the consent
         When I select institution "UniCredit Bank Romania"
-        When I click next
+        # When I click next
         When I click next
         When I visit the Authorise consent button link
         When I exchange the authorisation code to access token
@@ -19,6 +19,6 @@ Feature: UniCredit bank Romania
         When I get the account balances
         Then I should have a few balances in the list
         When I get the account transactions
-        # Then I should have a few transactions in the list
+# Then I should have a few transactions in the list
 
 
