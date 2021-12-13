@@ -102,7 +102,7 @@ When(/^I select institution "(.*)"$/, (institution) => {
   cy.wait('@consentUri', { timeout: 10000 }).then((interception) => {
     assert.isNotNull(interception, '1st API call has data');
 
-    cy.wrap(JSON.parse(interception.response.body).originalUri).as('originalConsentUri');
+    cy.wrap(interception.response.body.originalUri).as('originalConsentUri');
   });
 });
 
